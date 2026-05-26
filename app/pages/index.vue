@@ -10,7 +10,6 @@
 
 <script setup lang="ts">
 import LotGrid from '~/components/LotGrid.vue';
-
 const searchQuery = ref('')
 const activeCategory = ref('Горячее')
 </script>

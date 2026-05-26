@@ -1,0 +1,248 @@
+import { http, HttpResponse } from 'msw'
+ 
+export const handlers = [
+  http.get('https://api.example.com/catalog', () => {
+    return HttpResponse.json([
+  {
+    "id": "auc-001",
+    "name": "Антикварные наручные часы Omega",
+    "description": "Механические, 1950-е годы, в хорошем состоянии",
+    "category": "Часы и аксессуары",
+    "startingPrice": 500.00,
+    "currentPrice": 750.00,
+    "bidCount": 12,
+    "endTime": "2025-06-15T18:00:00Z",
+    "status": "active",
+    "seller": "antique_shop"
+  },
+  {
+    "id": "auc-002",
+    "name": "Картина 'Летний пейзаж' (масло)",
+    "description": "Художник И. Петров, размер 60x80 см",
+    "category": "Живопись и искусство",
+    "startingPrice": 1200.00,
+    "currentPrice": 1550.00,
+    "bidCount": 8,
+    "endTime": "2025-06-20T15:30:00Z",
+    "status": "active",
+    "seller": "art_gallery"
+  },
+  {
+    "id": "auc-003",
+    "name": "Игровая консоль PlayStation 5",
+    "description": "Комплектация: 2 контроллера, 5 игр",
+    "category": "Электроника и гаджеты",
+    "startingPrice": 400.00,
+    "currentPrice": 520.00,
+    "bidCount": 25,
+    "endTime": "2025-06-10T20:00:00Z",
+    "status": "active",
+    "seller": "tech_store"
+  },
+  {
+    "id": "auc-004",
+    "name": "Коллекционная винная бутылка Château Margaux 1982",
+    "description": "Винтаж, полная бутылка, хранение в погребе",
+    "category": "Коллекционные напитки",
+    "startingPrice": 2500.00,
+    "currentPrice": 3100.00,
+    "bidCount": 6,
+    "endTime": "2025-07-01T19:00:00Z",
+    "status": "active",
+    "seller": "wine_enthusiast"
+  },
+  {
+    "id": "auc-005",
+    "name": "Редкая монета 1 рубль 1921 года",
+    "description": "Серебро, состояние XF",
+    "category": "Нумизматика",
+    "startingPrice": 150.00,
+    "currentPrice": 280.00,
+    "bidCount": 18,
+    "endTime": "2025-06-12T12:00:00Z",
+    "status": "active",
+    "seller": "numismat"
+  },
+  {
+    "id": "auc-006",
+    "name": "Ноутбук Dell XPS 15",
+    "description": "Intel i7, 32GB RAM, 1TB SSD, отличное состояние",
+    "category": "Электроника и гаджеты",
+    "startingPrice": 800.00,
+    "currentPrice": 950.00,
+    "bidCount": 14,
+    "endTime": "2025-06-14T14:00:00Z",
+    "status": "active",
+    "seller": "electronics_dealer"
+  },
+  {
+    "id": "auc-007",
+    "name": "Подписанный мяч Лионеля Месси",
+    "description": "Сертификат подлинности",
+    "category": "Спортивный мерч",
+    "startingPrice": 300.00,
+    "currentPrice": 450.00,
+    "bidCount": 22,
+    "endTime": "2025-06-18T17:00:00Z",
+    "status": "active",
+    "seller": "sport_memorabilia"
+  },
+  {
+    "id": "auc-008",
+    "name": "Винтажная гитара Fender Stratocaster 1965",
+    "description": "Оригинальная, требует небольшой реставрации",
+    "category": "Музыкальные инструменты",
+    "startingPrice": 3000.00,
+    "currentPrice": 3800.00,
+    "bidCount": 5,
+    "endTime": "2025-06-25T16:00:00Z",
+    "status": "active",
+    "seller": "music_shop"
+  },
+  {
+    "id": "auc-009",
+    "name": "Антикварная лампа Tiffany",
+    "description": "Стекло, медная основа, начало XX века",
+    "category": "Антиквариат",
+    "startingPrice": 600.00,
+    "currentPrice": 720.00,
+    "bidCount": 9,
+    "endTime": "2025-06-16T13:00:00Z",
+    "status": "active",
+    "seller": "antique_dealer"
+  },
+  {
+    "id": "auc-010",
+    "name": "First Edition книги 'Гарри Поттер и Философский камень'",
+    "description": "Мягкая обложка, некоторые дефекты",
+    "category": "Коллекционные книги",
+    "startingPrice": 2500.00,
+    "currentPrice": 2900.00,
+    "bidCount": 7,
+    "endTime": "2025-06-22T11:00:00Z",
+    "status": "active",
+    "seller": "book_collector"
+  },
+  {
+    "id": "auc-011",
+    "name": "Сумка Louis Vuitton Neverfull",
+    "description": "Оригинал, использовалась мало, с пыльником",
+    "category": "Мода и аксессуары",
+    "startingPrice": 800.00,
+    "currentPrice": 1100.00,
+    "bidCount": 16,
+    "endTime": "2025-06-13T15:00:00Z",
+    "status": "active",
+    "seller": "luxury_closet"
+  },
+  {
+    "id": "auc-012",
+    "name": "Коллекционная фигурка Marvel Железный человек",
+    "description": "Hot Toys, 1/6, с футляром",
+    "category": "Коллекционные фигурки",
+    "startingPrice": 350.00,
+    "currentPrice": 480.00,
+    "bidCount": 11,
+    "endTime": "2025-06-11T10:00:00Z",
+    "status": "active",
+    "seller": "collectibles_world"
+  },
+  {
+    "id": "auc-013",
+    "name": "Спортивный автомобиль Porsche 911 (1987)",
+    "description": "Пробег 45 000 км, требует мелкого ремонта",
+    "category": "Автомобили",
+    "startingPrice": 35000.00,
+    "currentPrice": 41200.00,
+    "bidCount": 4,
+    "endTime": "2025-06-30T20:00:00Z",
+    "status": "active",
+    "seller": "classic_cars"
+  },
+  {
+    "id": "auc-014",
+    "name": "Изумрудное колье с бриллиантами",
+    "description": "Платина, натуральные камни, сертификат",
+    "category": "Ювелирные изделия",
+    "startingPrice": 5000.00,
+    "currentPrice": 6200.00,
+    "bidCount": 3,
+    "endTime": "2025-06-28T18:00:00Z",
+    "status": "active",
+    "seller": "jewelry_house"
+  },
+  {
+    "id": "auc-015",
+    "name": "Автограф Альберта Эйнштейна (открытка)",
+    "description": "Подлинность подтверждена экспертизой",
+    "category": "Исторические артефакты",
+    "startingPrice": 1200.00,
+    "currentPrice": 1700.00,
+    "bidCount": 10,
+    "endTime": "2025-06-17T14:00:00Z",
+    "status": "active",
+    "seller": "history_memorabilia"
+  },
+  {
+    "id": "auc-016",
+    "name": "Смартфон iPhone 14 Pro Max (1TB)",
+    "description": "Распакован, но не использовался",
+    "category": "Электроника и гаджеты",
+    "startingPrice": 900.00,
+    "currentPrice": 1050.00,
+    "bidCount": 13,
+    "endTime": "2025-06-09T16:00:00Z",
+    "status": "active",
+    "seller": "gadget_market"
+  },
+  {
+    "id": "auc-017",
+    "name": "Набор старинных серебряных ложек (6 шт.)",
+    "description": "Россия, конец XIX века, клейма",
+    "category": "Антиквариат",
+    "startingPrice": 200.00,
+    "currentPrice": 310.00,
+    "bidCount": 15,
+    "endTime": "2025-06-19T12:00:00Z",
+    "status": "active",
+    "seller": "silver_collector"
+  },
+  {
+    "id": "auc-018",
+    "name": "Олимпийский факел Сочи 2014",
+    "description": "В коллекционной упаковке",
+    "category": "Спортивный мерч",
+    "startingPrice": 400.00,
+    "currentPrice": 550.00,
+    "bidCount": 8,
+    "endTime": "2025-06-21T16:00:00Z",
+    "status": "active",
+    "seller": "sports_legacy"
+  },
+  {
+    "id": "auc-019",
+    "name": "Кожаное пальто Burberry",
+    "description": "Размер M, темно-коричневый",
+    "category": "Мода и аксессуары",
+    "startingPrice": 450.00,
+    "currentPrice": 600.00,
+    "bidCount": 7,
+    "endTime": "2025-06-14T19:00:00Z",
+    "status": "active",
+    "seller": "fashion_vintage"
+  },
+  {
+    "id": "auc-020",
+    "name": "Редкая монета 10 рублей 1901 года (золото)",
+    "description": "Николай II, состояние UNC",
+    "category": "Нумизматика",
+    "startingPrice": 6000.00,
+    "currentPrice": 7300.00,
+    "bidCount": 5,
+    "endTime": "2025-06-26T13:00:00Z",
+    "status": "active",
+    "seller": "coin_expert"
+  }
+])
+  }),
+]
