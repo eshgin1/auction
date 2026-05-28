@@ -1,10 +1,8 @@
 <template>
   <div>
-    <Slider />
+    <Slider :lots="items"/>
     <SearchAndFilters v-model:activeCategory="activeCategory" @search="searchQuery = $event" @filter="activeCategory = $event" />
-    <LotGrid  :category="activeCategory" :search="searchQuery"/>
-    <InternalLinks />
-    <CabinetPreview />
+    <LotGrid :lots="items" :category="activeCategory" :search="searchQuery"/>
   </div>
 </template>
 
@@ -12,4 +10,6 @@
 import LotGrid from '~/components/LotGrid.vue';
 const searchQuery = ref('')
 const activeCategory = ref('Горячее')
+const { items } = useLots(0, 4)
+
 </script>

@@ -1,9 +1,7 @@
 import { http, HttpResponse } from 'msw'
- 
-export const handlers = [
-  http.get('https://api.example.com/catalog', () => {
-    return HttpResponse.json([
-  {
+
+const allItems = [
+{
     "id": "auc-001",
     "name": "Антикварные наручные часы Omega",
     "description": "Механические, 1950-е годы, в хорошем состоянии",
@@ -243,6 +241,22 @@ export const handlers = [
     "status": "active",
     "seller": "coin_expert"
   }
-])
-  }),
+]
+ 
+export const handlers = [
+  http.get('https://api.example.com/catalog', ({ request }) => {
+    const url = new URL(request.url)
+    const offset = parseInt(url.searchParams.get('offset') || '0', 10)
+    const limit = parseInt(url.searchParams.get('limit') || '20', 10)
+
+    const paginatedItems = allItems.slice(offset, offset + limit)
+
+    return HttpResponse.json({
+      items: paginatedItems,
+      total: allItems.length,
+      offset,
+      limit,
+      hasMore: offset + limit < allItems.length
+    })
+  })
 ]

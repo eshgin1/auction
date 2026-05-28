@@ -12,6 +12,7 @@
 </template>
 
 <script setup lang="ts">
-import type { IAuctionItem } from './LotGrid.vue';
-defineProps<{ item: IAuctionItem }>()
+import type { ILotItem } from '~/types/lots';
+
+defineProps<{ item: ILotItem }>()
 </script>
