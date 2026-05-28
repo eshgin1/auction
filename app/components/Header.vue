@@ -1,12 +1,12 @@
 <template>
   <header>
     <div class="logo">
-      <NuxtLink  to="/">minimal<span>auction</span></NuxtLink >
+      <NuxtLink to="/">minimal<span>auction</span></NuxtLink>
     </div>
     <div class="nav-links">
-      <NuxtLink  to="/auction">Аукционы</NuxtLink >
+      <NuxtLink to="/auction">Аукционы</NuxtLink>
       <a href="#">Категории</a>
-      <button class="theme-toggle" @click="toggleTheme" aria-label="Тема">
+      <button class="theme-toggle" aria-label="Тема" @click="toggleTheme">
         <i :class="isDark ? 'fas fa-sun' : 'fas fa-moon'"></i>
       </button>
       <div class="user-profile">

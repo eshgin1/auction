@@ -16,7 +16,7 @@
 <script setup lang="ts">
 defineProps({
   totalPages: Number,
-  currentPage: Number
+  currentPage: Number,
 })
 
 const emit = defineEmits(['update:currentPage'])
@@ -27,6 +27,20 @@ const goToPage = (page: number) => {
 </script>
 
 <style>
-.pagination { display: flex; justify-content: center; gap: 12px; margin: 40px 0 32px; flex-wrap: wrap; }
-.page-btn { background: white; border: 1px solid #dee7ed; border-radius: 40px; padding: 8px 16px; font-size: 0.9rem; font-weight: 500; cursor: pointer; }
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 40px 0 32px;
+  flex-wrap: wrap;
+}
+.page-btn {
+  background: white;
+  border: 1px solid #dee7ed;
+  border-radius: 40px;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+}
 </style>

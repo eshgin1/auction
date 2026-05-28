@@ -1,14 +1,14 @@
 <template>
-    <div>
-        <SearchAndFilters />
-        <CatalogSort/>
-        <LotGrid :lots="items"/>
-        <Pagination 
-            :totalPages="totalPages" 
-            :currentPage="currentPage"
-            @update:currentPage="goToPage"
-        />
-    </div>
+  <div>
+    <SearchAndFilters />
+    <CatalogSort />
+    <LotGrid :lots="items" />
+    <Pagination
+      :totalPages="totalPages"
+      :currentPage="currentPage"
+      @update:currentPage="goToPage"
+    />
+  </div>
 </template>
 
 <script setup lang="ts">

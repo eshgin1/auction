@@ -19,6 +19,18 @@ const emitSort = () => {
 </script>
 
 <style>
- .sort-bar { display: flex; justify-content: flex-end; margin-bottom: 16px; }
-    .sort-select { background: white; border: 1px solid #dee7ed; border-radius: 40px; padding: 8px 16px; font-size: 0.8rem; font-weight: 500; color: #2b3f55; }
+.sort-bar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 16px;
+}
+.sort-select {
+  background: white;
+  border: 1px solid #dee7ed;
+  border-radius: 40px;
+  padding: 8px 16px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #2b3f55;
+}
 </style>

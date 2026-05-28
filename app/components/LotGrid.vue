@@ -2,7 +2,7 @@
   <div>
     <div class="section-title">
       <h2>Активные лоты</h2>
-      <NuxtLink  to="/auction">Все →</NuxtLink>
+      <NuxtLink to="/auction">Все →</NuxtLink>
     </div>
     <div class="card-grid">
       <LotCard v-for="lot in props.lots" :key="lot.id" :item="lot" />
@@ -11,7 +11,11 @@
 </template>
 
 <script setup lang="ts">
-import type { ILotItem } from '~/types/lots';
-import LotCard from './LotCard.vue';
-const props = defineProps<{ search: string, category: string,  lots:ILotItem[]}>()
+import type { ILotItem } from '~/types/lots'
+import LotCard from './LotCard.vue'
+const props = defineProps<{
+  search: string
+  category: string
+  lots: ILotItem[]
+}>()
 </script>

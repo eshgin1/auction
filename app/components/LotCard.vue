@@ -12,7 +12,7 @@
 </template>
 
 <script setup lang="ts">
-import type { ILotItem } from '~/types/lots';
+import type { ILotItem } from '~/types/lots'
 
 defineProps<{ item: ILotItem }>()
 </script>

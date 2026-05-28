@@ -6,10 +6,7 @@ export default defineNuxtConfig({
   css: ['~/assets/css/main.css'],
   vite: {
     optimizeDeps: {
-      include: [
-        'msw',
-        'msw/browser'
-      ]
-    }
-  }
+      include: ['msw', 'msw/browser'],
+    },
+  },
 })
