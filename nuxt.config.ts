@@ -9,4 +9,12 @@ export default defineNuxtConfig({
       include: ['msw', 'msw/browser'],
     },
   },
+  typescript: {
+    typeCheck: true,
+    tsConfig: {
+      vueCompilerOptions: {
+        target: 3.3,
+      },
+    },
+  },
 })

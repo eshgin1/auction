@@ -23,7 +23,9 @@
   "devDependencies": {
     "@types/node": "^25.9.1",
     "eslint-config-prettier": "^10.1.8",
-    "prettier": "^3.8.3"
+    "prettier": "^3.8.3",
+    "typescript": "^6.0.3",
+    "vue-tsc": "^3.3.2"
   },
   "msw": {
     "workerDirectory": [

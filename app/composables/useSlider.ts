@@ -1,6 +1,6 @@
 export const useSlider = (totalSlides: number) => {
   const currentIndex = ref(0)
-  let interval = 0
+  const interval = 0
 
   const next = () => {
     currentIndex.value = (currentIndex.value + 1) % totalSlides
@@ -13,7 +13,7 @@ export const useSlider = (totalSlides: number) => {
   }
 
   const startAutoPlay = () => {
-    interval = setInterval(() => {
+    setInterval(() => {
       next()
     }, 6000)
   }

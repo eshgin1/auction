@@ -14,7 +14,7 @@
 import type { ILotItem } from '~/types/lots'
 import LotCard from './LotCard.vue'
 const props = defineProps<{
-  search: string
+  searchQuery: string
   category: string
   lots: ILotItem[]
 }>()

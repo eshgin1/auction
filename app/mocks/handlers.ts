@@ -259,4 +259,30 @@ export const handlers = [
       hasMore: offset + limit < allItems.length,
     })
   }),
+  http.get('https://api.example.com/catalog/sorted', ({ request }) => {
+    const url = new URL(request.url)
+    const offset = parseInt(url.searchParams.get('offset') || '0')
+    const limit = parseInt(url.searchParams.get('limit') || '8')
+    const sort = url.searchParams.get('sort') || 'default'
+
+    // Копируем массив, чтобы не мутировать оригинал
+    const sortedItems = [...allItems]
+
+    if (sort === 'price_asc') {
+      sortedItems.sort((a, b) => a.currentPrice - b.currentPrice)
+    } else if (sort === 'price_desc') {
+      sortedItems.sort((a, b) => b.currentPrice - a.currentPrice)
+    }
+    // Можно добавить другие варианты сортировки
+
+    const paginatedItems = sortedItems.slice(offset, offset + limit)
+
+    return HttpResponse.json({
+      items: paginatedItems,
+      total: sortedItems.length,
+      offset,
+      limit,
+      hasMore: offset + limit < sortedItems.length,
+    })
+  }),
 ]

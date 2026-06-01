@@ -2,7 +2,7 @@
   <div class="search-section">
     <div class="search-bar">
       <i class="fas fa-search"></i>
-      <input type="text" placeholder="Поиск..." v-model="searchQuery" />
+      <input v-model="searchQuery" type="text" placeholder="Поиск..." />
       <button @click="$emit('search', searchQuery)">Найти</button>
     </div>
     <div class="categories-mini">
@@ -10,7 +10,7 @@
         v-for="cat in categories"
         :key="cat.name"
         class="category-chip"
-        :class="{ active: activeCategory === cat.name }"
+        :class="{ active: category === cat.name }"
         @click="$emit('filter', cat.name)"
       >
         {{ cat.emoji }} {{ cat.name }}
@@ -27,9 +27,5 @@ const categories = [
   { name: 'Часы', emoji: '⌚' },
   { name: 'Фото', emoji: '📷' },
 ]
-defineProps<{ activeCategory: string }>()
-defineEmits<{
-  (e: 'search', q: string): void
-  (e: 'filter', cat: string): void
-}>()
+defineProps<{ category: string }>()
 </script>

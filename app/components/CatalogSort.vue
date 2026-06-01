@@ -1,6 +1,6 @@
 <template>
   <div class="sort-bar">
-    <select v-model="selected" class="sort-select" @change="emitSort">
+    <select v-model="selected" class="sort-select" @change="handleSortChange">
       <option value="default">Сортировать: по умолчанию</option>
       <option value="price_asc">Сначала дешевле</option>
       <option value="price_desc">Сначала дороже</option>
@@ -9,12 +9,18 @@
   </div>
 </template>
 
-<script setup>
-const selected = ref('default')
-const emit = defineEmits(['sort'])
+<script setup lang="ts">
+const props = defineProps<{
+  handleSort: (value: string) => void
+  sortBy: string
+}>()
 
-const emitSort = () => {
-  emit('sort', selected.value)
+const selected = ref('default')
+
+const handleSortChange = () => {
+  console.log(selected.value)
+
+  props.handleSort(selected.value)
 }
 </script>
 

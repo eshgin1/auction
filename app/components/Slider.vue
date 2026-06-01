@@ -6,7 +6,7 @@
         :style="{ transform: `translateX(-${currentIndex * 100}%)` }"
       >
         <div
-          v-for="(slide, idx) in lotsForSlider"
+          v-for="(slide) in lotsForSlider"
           :key="slide.id"
           class="slider-card"
         >
