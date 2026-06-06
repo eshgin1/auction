@@ -1,5 +1,5 @@
 <template>
-  <div class="lot-card">
+  <NuxtLink :to="`/auction/${item.id}`" class="lot-card">
     <div class="card-img"><i :class="item.id"></i></div>
     <div class="card-category">{{ item.category }}</div>
     <h3>{{ item.name }}</h3>
@@ -8,7 +8,7 @@
       <span class="bid-value">{{ item.currentPrice }} <small>₽</small></span>
       <!-- <span class="time-left">{{ item.timeLeft }}</span> -->
     </div>
-  </div>
+  </NuxtLink>
 </template>
 
 <script setup lang="ts">

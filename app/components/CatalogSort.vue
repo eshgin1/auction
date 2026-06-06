@@ -18,7 +18,6 @@ const props = defineProps<{
 const selected = ref('default')
 
 const handleSortChange = () => {
-  console.log(selected.value)
 
   props.handleSort(selected.value)
 }

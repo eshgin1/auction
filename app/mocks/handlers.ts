@@ -285,4 +285,14 @@ export const handlers = [
       hasMore: offset + limit < sortedItems.length,
     })
   }),
+  http.get('https://api.example.com/items/:id', ({ params }) => {
+    const { id } = params;
+    const item = allItems.find(item => item.id === id);
+
+    if (!item) {
+      return new HttpResponse(null, { status: 404 });
+    }
+
+    return HttpResponse.json(item);
+  }),
 ]
