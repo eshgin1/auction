@@ -5,11 +5,7 @@
         class="slider-track"
         :style="{ transform: `translateX(-${currentIndex * 100}%)` }"
       >
-        <div
-          v-for="(slide) in lotsForSlider"
-          :key="slide.id"
-          class="slider-card"
-        >
+        <div v-for="slide in lotsForSlider" :key="slide.id" class="slider-card">
           <div class="slider-content">
             <div class="slider-label">{{ slide.category }}</div>
             <div class="slider-title">{{ slide.name }}</div>

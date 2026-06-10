@@ -59,6 +59,20 @@ body.dark-theme header {
   font-size: 0.75rem;
   margin-left: 6px;
 }
+.login-btn {
+  background: #6c5ce7;
+  border: none;
+  color: white;
+  padding: 6px 14px;
+  border-radius: 40px;
+  font-weight: 500;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.login-btn:hover {
+  background: #5649c0;
+}
 
 /* навигация и лк в мобиле могут переноситься */
 .nav-links {
@@ -352,7 +366,7 @@ body.dark-theme .category-chip {
   display: flex;
   flex-direction: column;
   text-decoration: none;
-  color: inherit; 
+  color: inherit;
 }
 body.dark-theme .lot-card {
   background: #1e2a3a;

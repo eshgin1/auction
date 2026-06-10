@@ -286,13 +286,66 @@ export const handlers = [
     })
   }),
   http.get('https://api.example.com/items/:id', ({ params }) => {
-    const { id } = params;
-    const item = allItems.find(item => item.id === id);
+    const { id } = params
+    const item = allItems.find((item) => item.id === id)
 
     if (!item) {
-      return new HttpResponse(null, { status: 404 });
+      return new HttpResponse(null, { status: 404 })
     }
 
-    return HttpResponse.json(item);
+    return HttpResponse.json(item)
+  }),
+  // авторизация
+  http.post('https://api.example.com/createcode', async ({ request }) => {
+    const body = (await request.json()) as { phone: string }
+    const { phone } = body
+
+    const isNewClient = phone !== '79001234567'
+
+    return HttpResponse.json({
+      status: true,
+      newClient: isNewClient,
+    })
+  }),
+  http.post('https://api.example.com/validcode', async ({ request }) => {
+    const body = (await request.json()) as { phone: string; pin: number }
+    const { phone, pin } = body
+
+    if (pin === 1111) {
+      const mockToken = `mock-jwt-token-${phone}-${Date.now()}`
+
+      return HttpResponse.json({
+        status: true,
+        token: mockToken,
+      })
+    } else {
+      return HttpResponse.json({
+        status: false,
+        message: 'Неверный код подтверждения',
+      })
+    }
+  }),
+  http.post('https://api.example.com/getuser', async ({ request }) => {
+    const body = (await request.json()) as { token: string }
+    const { token } = body
+
+    if (token && token.startsWith('mock-jwt-token-')) {
+      const phoneMatch = token.match(/mock-jwt-token-(\+?\d+)-/)
+      const phone = phoneMatch ? phoneMatch[1] : '79950005900'
+      return HttpResponse.json({
+        status: true,
+        user: {
+          id: 123,
+          name: 'Тестовый Пользователь',
+          phone: phone,
+          email: 'test@example.com',
+        },
+      })
+    } else {
+      return HttpResponse.json({
+        status: false,
+        message: 'Недействительный токен',
+      })
+    }
   }),
 ]

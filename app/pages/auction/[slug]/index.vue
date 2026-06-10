@@ -2,14 +2,16 @@
   <div class="lot-page-container">
     <!-- Хлебные крошки -->
     <div class="breadcrumb">
-      <a href="#">Главная</a> / <a href="#" @click.prevent="goToCatalog">Каталог</a> / <span>{{lotData?.name}}</span>
+      <a href="#">Главная</a> /
+      <a href="#" @click.prevent="goToCatalog">Каталог</a> /
+      <span>{{ lotData?.name }}</span>
     </div>
 
     <!-- Основная сетка: галерея + информация о лоте -->
     <div class="lot-detail-grid">
       <!-- Галерея -->
       <div class="gallery">
-        <div class="main-image" v-html="activeIcon"></div>
+        <div class="main-image"></div>
         <div class="thumbnails">
           <div
             v-for="thumb in thumbnails"
@@ -17,32 +19,38 @@
             class="thumb"
             :class="{ active: activeThumbId === thumb.id }"
             @click="setActiveThumb(thumb.id, thumb.icon)"
-            v-html="thumb.icon"
           ></div>
         </div>
       </div>
 
       <!-- Информация и форма ставки -->
       <div class="lot-info">
-        <div class="category-badge"><i class="fas fa-camera"></i> {{lotData?.category}}</div>
-        <h1 class="lot-title">{{lotData?.name}}</h1>
+        <div class="category-badge">
+          <i class="fas fa-camera"></i> {{ lotData?.category }}
+        </div>
+        <h1 class="lot-title">{{ lotData?.name }}</h1>
         <div class="seller">
           <i class="fas fa-store"></i>
-          <span>Продавец: <strong>{{lotData?.seller}}</strong></span>
+          <span
+            >Продавец: <strong>{{ lotData?.seller }}</strong></span
+          >
         </div>
 
         <div class="bid-card">
           <div class="current-price">
             <span class="price-label">Текущая ставка</span>
-            <span class="price-value">{{ lotData?.startingPrice.toLocaleString() }} ₽</span>
+            <span class="price-value"
+              >{{ lotData?.startingPrice.toLocaleString() }} ₽</span
+            >
           </div>
           <div class="min-bid">
-            Минимальная следующая ставка: <strong>{{ lotData?.bidCount.toLocaleString() }} ₽</strong>
+            Минимальная следующая ставка:
+            <strong>{{ lotData?.bidCount.toLocaleString() }} ₽</strong>
           </div>
           <div class="bid-input-group">
             <input
-              type="number"
               v-model.number="bidAmount"
+              type="number"
               :placeholder="`от ${nextMinBid.toLocaleString()} ₽`"
               step="1000"
             />
@@ -51,11 +59,14 @@
             </button>
           </div>
           <div class="timer-block">
-            <span class="timer-icon"><i class="far fa-clock"></i> До завершения:</span>
+            <span class="timer-icon"
+              ><i class="far fa-clock"></i> До завершения:</span
+            >
             <span class="timer-digits">{{ timerText }}</span>
           </div>
           <div class="guarantee-text">
-            <i class="fas fa-shield-alt"></i> Победитель получает проверенный лот + экспертное заключение
+            <i class="fas fa-shield-alt"></i> Победитель получает проверенный
+            лот + экспертное заключение
           </div>
         </div>
       </div>
@@ -69,9 +80,14 @@
       <p>{{ lotData?.description }}</p>
       <ul>
         <li><strong>Состояние:</strong> 9/10, незначительная патина</li>
-        <li><strong>Комплект:</strong> оригинальный чехол, крышка байонета, батарейка для экспонометра</li>
+        <li>
+          <strong>Комплект:</strong> оригинальный чехол, крышка байонета,
+          батарейка для экспонометра
+        </li>
         <li><strong>Пробег плёнки:</strong> менее 70 рулонов</li>
-        <li><strong>Доставка:</strong> застрахованная, личная встреча в Москве/СПБ</li>
+        <li>
+          <strong>Доставка:</strong> застрахованная, личная встреча в Москве/СПБ
+        </li>
       </ul>
     </div>
 
@@ -83,12 +99,18 @@
       </div>
       <table class="history-table">
         <thead>
-          <tr><th>Участник</th><th>Ставка</th><th>Дата / время</th></tr>
+          <tr>
+            <th>Участник</th>
+            <th>Ставка</th>
+            <th>Дата / время</th>
+          </tr>
         </thead>
         <tbody>
           <tr v-for="(bid, idx) in sortedHistory" :key="idx">
             <td><i class="fas fa-user-circle"></i> {{ bid.user }}</td>
-            <td><strong>{{ bid.amount.toLocaleString() }} ₽</strong></td>
+            <td>
+              <strong>{{ bid.amount.toLocaleString() }} ₽</strong>
+            </td>
             <td>{{ bid.date }}</td>
           </tr>
         </tbody>
@@ -99,17 +121,40 @@
     <div class="similar-section">
       <div class="section-header">
         <h3><i class="fas fa-layer-group"></i> Похожие лоты</h3>
-        <a href="#" style="color:#6c5ce7; font-size:0.8rem; text-decoration:none;">Все →</a>
+        <a
+          href="#"
+          style="color: #6c5ce7; font-size: 0.8rem; text-decoration: none"
+          >Все →</a
+        >
       </div>
       <div class="similar-grid">
-        <div class="similar-card"><i class="fas fa-watch"></i><h4>Omega Speedmaster</h4><div class="similar-price">142 000 ₽</div><small>1 день</small></div>
-        <div class="similar-card"><i class="fas fa-crown"></i><h4>Статуэтка "Венера"</h4><div class="similar-price">89 000 ₽</div><small>5 часов</small></div>
-        <div class="similar-card"><i class="fas fa-guitar"></i><h4>Gibson Les Paul</h4><div class="similar-price">210 000 ₽</div><small>2 дня</small></div>
+        <div class="similar-card">
+          <i class="fas fa-watch"></i>
+          <h4>Omega Speedmaster</h4>
+          <div class="similar-price">142 000 ₽</div>
+          <small>1 день</small>
+        </div>
+        <div class="similar-card">
+          <i class="fas fa-crown"></i>
+          <h4>Статуэтка "Венера"</h4>
+          <div class="similar-price">89 000 ₽</div>
+          <small>5 часов</small>
+        </div>
+        <div class="similar-card">
+          <i class="fas fa-guitar"></i>
+          <h4>Gibson Les Paul</h4>
+          <div class="similar-price">210 000 ₽</div>
+          <small>2 дня</small>
+        </div>
       </div>
     </div>
 
     <!-- Всплывающее сообщение -->
-    <div v-if="toastVisible" class="message-toast" :class="{ 'toast-error': toastIsError }">
+    <div
+      v-if="toastVisible"
+      class="message-toast"
+      :class="{ 'toast-error': toastIsError }"
+    >
       {{ toastText }}
     </div>
   </div>
@@ -133,20 +178,20 @@ const fetchData = async () => {
 }
 
 onMounted(() => {
-  fetchData();
-});
+  fetchData()
+})
 
 // --- Реактивные данные ---
-const currentPrice = ref(178000)      // текущая цена
-const bidStep = ref(5000)             // шаг, будет пересчитываться после ставок
-const bidAmount = ref(null)           // сумма в поле ввода
+const currentPrice = ref(178000) // текущая цена
+const bidStep = ref(5000) // шаг, будет пересчитываться после ставок
+const bidAmount = ref(null) // сумма в поле ввода
 
 // История ставок
 const bidHistory = ref([
-  { user: "Mihail_Foto", amount: 178000, date: "сегодня, 14:22" },
-  { user: "Alex_L", amount: 175000, date: "сегодня, 13:05" },
-  { user: "RetroCollect", amount: 172000, date: "сегодня, 11:47" },
-  { user: "Артём К.", amount: 170000, date: "вчера, 19:12" }
+  { user: 'Mihail_Foto', amount: 178000, date: 'сегодня, 14:22' },
+  { user: 'Alex_L', amount: 175000, date: 'сегодня, 13:05' },
+  { user: 'RetroCollect', amount: 172000, date: 'сегодня, 11:47' },
+  { user: 'Артём К.', amount: 170000, date: 'вчера, 19:12' },
 ])
 
 // Время окончания (2 дня + 3 часа от текущего момента)
@@ -167,14 +212,11 @@ let toastTimeout = null
 // Тёмная тема
 const isDark = ref(false)
 
-// Баланс пользователя (статичен для демо)
-const userBalance = ref(142300)
-
 // Галерея
 const thumbnails = ref([
   { id: 1, icon: '<i class="fas fa-camera-retro"></i>', label: 'camera' },
   { id: 2, icon: '<i class="fas fa-camera"></i>', label: 'lens' },
-  { id: 3, icon: '<i class="fas fa-suitcase"></i>', label: 'case' }
+  { id: 3, icon: '<i class="fas fa-suitcase"></i>', label: 'case' },
 ])
 const activeThumbId = ref(1)
 const activeIcon = ref(thumbnails.value[0].icon)
@@ -214,7 +256,10 @@ function placeBid() {
   }
   const bid = bidAmount.value
   if (bid < nextMinBid.value) {
-    showMessage(`Минимальная ставка ${nextMinBid.value.toLocaleString()} ₽`, true)
+    showMessage(
+      `Минимальная ставка ${nextMinBid.value.toLocaleString()} ₽`,
+      true,
+    )
     return
   }
 
@@ -224,7 +269,7 @@ function placeBid() {
   bidHistory.value.push({
     user: 'Артём К.',
     amount: bid,
-    date: timeStr
+    date: timeStr,
   })
   // Обновляем текущую цену
   currentPrice.value = bid
@@ -249,7 +294,7 @@ function updateTimer() {
     return
   }
   const days = Math.floor(distance / (1000 * 60 * 60 * 24))
-  const hours = Math.floor((distance % (86400000)) / 3600000)
+  const hours = Math.floor((distance % 86400000) / 3600000)
   const minutes = Math.floor((distance % 3600000) / 60000)
   const seconds = Math.floor((distance % 60000) / 1000)
   let text = ''
@@ -262,18 +307,6 @@ function updateTimer() {
 function setActiveThumb(id, iconHtml) {
   activeThumbId.value = id
   activeIcon.value = iconHtml
-}
-
-// Тёмная тема
-function toggleTheme() {
-  isDark.value = !isDark.value
-  if (isDark.value) {
-    document.body.classList.add('dark-theme')
-    localStorage.setItem('theme', 'dark')
-  } else {
-    document.body.classList.remove('dark-theme')
-    localStorage.setItem('theme', 'light')
-  }
 }
 
 // Переход на каталог (демо)
@@ -299,7 +332,7 @@ onMounted(() => {
   initTheme()
   updateTimer()
   timerInterval = setInterval(updateTimer, 1000)
-  updateBidStep()   // начальная корректировка шага
+  updateBidStep() // начальная корректировка шага
 })
 
 onBeforeUnmount(() => {
@@ -803,7 +836,7 @@ footer a {
   z-index: 1000;
   transition: opacity 0.3s;
   opacity: 1;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 body.dark-theme .message-toast {

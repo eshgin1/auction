@@ -6,5 +6,6 @@ export default withNuxt({
   // Your custom configs here
   rules: {
     ...eslintConfigPrettier.rules,
+    'vue/multi-word-component-names': 'off'
   },
 })
